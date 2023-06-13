@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>會員登入系統</title>
+    <!-- CSS連結 -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <h1>登入會員</h1>
+
+    <div class="container_1">
+        <form action="">
+            <!-- 使用者 -->
+            <label>使用者名稱</label>
+            <input type="text" id="username" name="username" required>
+            <!-- 密碼 -->
+            <label>密碼</label>
+            <input type="password" id="psw" name="psw" required>
+            <!-- 按鈕 -->
+            <button type="submit" id="btn_1" onclick="a()"  >登入</button>
+         
+        </form>
+    </div>
+
+    <!-- 顯示規則的區域 -->
+
+    <div id="rule">
+        <h2>以下條件仍未符合</h2>
+        <p id="lowercase" class="invalid"> 至少1個小寫字母 </p>
+        <p id="uppercase" class="invalid"> 至少1個大寫字母 </p>
+        <p id="number" class="invalid"> 至少1個數字 </p>
+        <p id="length" class="invalid"> 至少8個數字/字母 </p>
+    </div>
+
+
+    <!-- JS連結 -->
+    <script src="js/會員登錄.js"></script>
+
+
+</body>
+
+</html>

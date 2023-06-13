@@ -1,0 +1,785 @@
+/* 新增 - 會員登入 */
+
+body{
+    background-color: #99a2de;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container_1 {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(255, 255, 255);
+    padding: 20px;
+    font-size: 30px;
+}
+
+.container_1 input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid brown;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    box-sizing: border-box;
+}
+
+.container_1 button {
+    width: 100%;
+    background-color: rgb(238, 140, 54);
+    font-size: 30px;
+    border: none;
+    margin-top: 20px;
+}
+
+#rule {
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: rgb(221, 217, 217);
+    padding: 20px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+#rule h2 {
+    text-align: center;
+}
+
+.invalid {
+    color: red;
+}
+
+.valid {
+    color: rgb(0, 171, 0);
+}
+
+.invalid:before {
+    position: relative;
+    left: -5px;
+    content: "!";
+}
+
+.valid:before {
+    position: relative;
+    left: -5px;
+    content: "\2713";
+}
+
+
+/* 版面設定 */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    text-decoration: none;
+    transition: 0.4s all linear;
+    font-size:20px;
+}
+/* 第一區 header */
+header{
+    font-size: 20px;
+    /* header 固定上方 */
+    position: fixed;
+    /* 對齊上方 */
+    top: 0; left: 0;right: 0;
+    /* 移至最上層 */
+    z-index: 100;
+    /* 置中 */
+    display: flex;
+    /* 飛到旁邊去 */
+    justify-content: space-between;
+    /* 對齊交錯軸線中央 */
+    align-items: center;
+    /* 美化 */
+    padding: 10px;
+    background: rgb(0, 0, 0);
+    box-shadow: 10px 1rem 1rem rgba(0,0,0,0.1);
+    /* 透明 */
+    opacity: 0.9;
+}
+header img{
+    width: 40px; height: 60px; padding-bottom: -10px; 
+
+}
+/* header 導覽列中的連結 */
+header .navbar a{
+    font-size: 22px;
+    font-weight: bold;
+    color:rgb(255, 255, 255);
+    padding-left: 10px;
+}
+
+header .logo{
+    font-size: 25px;
+    font-weight: normal;
+    color: white;
+}
+
+
+
+header .navbar a:hover{
+    font-size: 26px;
+    font-weight: 900;
+    color: rgb(255, 0, 0); 
+    margin-left: 10px;
+    transition: 0.5s;
+    padding: 10px 10px 10px 10px;
+}
+
+#menu-bar{
+    size: 25px;
+    color: rgb(253, 253, 253);
+    border: 1.5px solid rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 10px;
+    display: none;
+}
+
+/* 主頁 */
+.home{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    min-height: 500px;
+    align-items: center;
+    background: url(../圖片/background.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+/* 講師黑底 */
+.home .content{
+    flex: 1 1 30px;
+    margin-top: 60px;
+    padding: 50px;
+    background: rgb(2,0,36);
+    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(0,0,0,0) 100%, rgba(0,212,255,1) 100%);
+}
+
+.home .content h3{
+    font-size: 53px;
+    color: yellow;
+}
+/* 文字 */
+.home .content p{
+    font-size: 20px;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+/* 按鈕 */
+.btn{
+    padding: 20px;
+    border: 3px solid yellow;
+    color: yellow;
+    font-size: 25px;
+    border-radius: 10px;
+    z-index: 0;
+    position: relative;
+}
+
+.btn:hover{
+    background-color: chocolate;
+    color: white;
+    box-shadow: inset 200px 0 0 0 chocolate;
+    transition: 1.5 all;
+}
+
+.home img:hover{
+    flex: 1 1 30px;
+    animation: moving 2s linear infinite;
+}
+
+.home img{
+    height:600px;
+    width: 500px;
+}
+
+@keyframes moving {
+    0%{transform: translateX(0rem);}
+    50%{transform: translateX(2rem);}
+    100%{transform: translateX(0rem);}
+}
+
+/* 風格介紹 */
+
+.heading{
+    text-align: center;
+    font-size: 30px;
+    color: rgb(0, 0, 0);
+    padding: 30px;
+}
+
+
+
+
+.speciality .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.speciality .box-container .box{
+    flex: 1 1 30px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 10px 10px black;
+    border: 1px solid black;
+    cursor:pointer;
+    border-radius: 20px;
+}
+
+.speciality .box-container .box .image{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    /* 先把位置隱藏起來 */
+    position: absolute;
+    top: 0%;
+    left: -100%;
+}
+
+
+
+.speciality .box-container .box .content{
+    text-align: center;
+    padding: 10px;
+    height: 250px;
+    background-color: rgb(58, 55, 55);
+    color: rgb(255, 255, 255);
+}
+
+.speciality .box-container .box .content img{
+    width: 180px;
+    height: 120px;
+    margin: 10px;
+}
+
+
+.speciality .box-container .box .content h3{
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+}
+
+.speciality .box-container .box .content p{
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+}
+
+.speciality .box-container .box:hover .image{
+   left: 0%;
+}
+
+
+
+.speciality .box-container .box:hover .content{
+    transform: translateY(100% );
+ }
+/* 線上課程  */
+
+.heading span{
+    font-size: 30px;
+    color: rgb(255, 0, 0);
+}
+
+.menu .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap:10px;
+}
+
+.menu .box-container .box h3{
+    color: rgb(255, 255, 255);
+    font-size: 30px;
+    padding: 10px 40px 10px 40px;
+    text-align: center;
+    background: black;
+
+}
+
+.menu .box-container .stars{
+    color: chocolate;
+    font-size: 20px;
+    padding: 10px 10px 10px 10px;
+    /* 置中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu .box-container .box{
+    flex: 1 1 10px;
+    padding: 10px;
+    box-shadow: 5px 5px 5px gray;
+    border: 1px solid gray;
+    background: url(../圖片/background2.jpg) no-repeat;
+    background-size:cover ;
+    border-radius:20px ;
+    padding-bottom: 30px;
+    height: 500px;
+}
+
+.menu .box-container .box img{
+    height: 310px;
+    object-fit: cover; 
+    width: 70%;
+    border-radius: 20px;
+    z-index: 1; 
+}
+
+.menu .box-container .box .price{
+    z-index: 1;
+    font-weight: bold;
+    font-size: 40px;
+    color: rgb(255, 255, 255);
+    background-color: chocolate;
+    padding: 10px 60px 10px 60px;
+    opacity: 0.8;
+    /* 浮起來 (左上浮貼)*/
+    position:absolute ;
+}
+
+.menu .box-container .box .btn2{
+    font-size: 30px;
+    padding: 10px;
+    border-radius: 20px;
+    color: chocolate;
+    /* 置中 */
+    display: flex;
+    align-content: center;
+    align-items: center;
+    border: 5px solid chocolate;
+}
+
+.menu .box-container .box .btn2:hover{
+    background-color: chocolate;
+    color: aliceblue;
+    box-shadow: inset 400px 0 0 0 chocolate;
+    transition: 1s all;
+}
+
+.menu .box-container .box img:hover{
+    z-index: 0;
+    animation: shaking 1s linear infinite;
+}
+
+
+@keyframes shaking {
+    0%{transform: translateX(0rem) translateY(0rem);}
+    50%{transform: translateX(0.5rem) translateY(-0.5rem);}
+    100%{transform: translateX(0rem) translateY(0rem);}
+}
+/* 第五區 實際成果 */
+
+.gallery .box-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.gallery .box-container .box{
+    flex: 1 1 10px;
+    height: 300px;
+
+    background-color: yellow;
+    box-shadow: 5px 5px 5px gray;
+    border: 1px solid gray;
+
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery .box-container .box img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    z-index: 1;
+}
+
+.gallery .box-container .box .content{
+    color: black;
+    position: absolute;
+    top: -100;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background: white;
+    padding: 10px;
+    padding-top: 20px;
+    text-align: center;
+}
+
+.gallery .box-container .box:hover .content{
+    top: 0;
+    opacity: 0.8;
+    transition: 0.6s all linear;
+}
+
+
+/* 第六區  */
+.review .box-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.review .box-container .box {
+    text-align: center;
+    padding: 10px;
+    border: 8px solid rgb(255, 255, 255);
+    box-shadow: 5px 5px 5px black;
+    border-radius: 20px;
+    flex: 1 1 20px;
+    background: rgb(255, 217, 0);
+    margin-top: 80px;
+}
+
+.review .box-container .box img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 8px solid rgb(9, 152, 152);
+    margin-top: -100px;
+    object-fit: cover;
+}
+
+.review .box-container .box h3 {
+    font-size: 30px;
+    color: chocolate;
+    padding: 10px;
+}
+
+.review .box-container .box .stars i {
+    font-size: 20px;
+    color: chocolate;
+    padding: 10px;
+}
+
+.review .box-container .box p {
+    font-size: 20px;
+    color: rgb(11, 11, 11);
+    padding: 10px;
+}
+
+/* 自己頻論 */
+.stars2{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+   
+}
+
+.stars2 i.active{
+    color: chocolate;
+}
+
+.review .box-container .box button{
+    font-size: 20px;
+    padding: 20px;
+    border-radius: 20px;
+    color: chocolate;
+    border: 5px solid chocolate;
+}
+
+.review .box-container .box button:hover{
+background-color: chocolate;
+color: aliceblue;
+box-shadow: inset 400px 0 0 0 chocolate;
+transition: 1s all;
+}
+
+/* 第七區  */
+.order .row {
+    padding: 10px;
+    box-shadow: 5px 5px 5px rgb(140, 140, 140);
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-radius: 20px;
+}
+
+.order .row .image {
+    flex: 1 1 30px;
+}
+
+.order .row .image img {
+    height: 450px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.order .row form .inputbox select,
+.order .row form .inputbox input,
+.order .row form textarea {
+    padding: 10px;
+    margin: 10px;
+    font-size: 20px;
+    color: black;
+    text-transform: none;
+    border: 2px solid rgb(9, 152, 152);
+    border-radius: 20px;
+}
+
+.order .row form textarea {
+    width: 100%;
+    resize: none;
+    height: 220px;
+    margin: 5px;
+}
+
+.order .row form .btn3 {
+    font-size: 30px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 20px;
+    color: chocolate;
+    /* 置中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 5px solid chocolate;
+}
+
+.order .row form .btn3:hover {
+    background-color: chocolate;
+    color: rgb(228, 210, 210);
+    box-shadow: inset 400px 0 0 0 chocolate;
+    transition: 1s all;
+}
+/* 第八區  */
+.footer {
+    background: rgb(0, 0, 0);
+    text-align: center;
+}
+
+.footer .social {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.footer .credit {
+    padding: 10px;
+    color: rgb(255, 255, 255);
+    font-weight: normal;
+}
+
+.footer .credit span {
+    color: rgb(228, 73, 73);
+}
+
+
+/* 回到上層按鈕 */
+
+#scroll-up {
+    position: fixed;
+    top: -120%;
+    right: 20px;
+    padding: 10px;
+    font-size: 25px;
+    background: chocolate;
+    color: white;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: 1s linear;
+}
+
+#scroll-up.active {
+    top: 80%;
+}
+
+/* 回到上層按鈕 */
+
+#scroll-up {
+    position: fixed;
+    top: -120%;
+    right: 20px;
+    padding: 10px;
+    font-size: 25px;
+    background: chocolate;
+    color: white;
+    border-radius: 10px;
+    opacity: 0.8;
+    transition: 1s linear;
+    z-index: 1;
+}
+
+#scroll-up.active {
+    top: 85%;
+}
+
+/* BMI */
+
+.joinUs{
+    font-size: 50px;
+    color: #000000;
+    -webkit-text-stroke: rgb(255, 255, 255) 1px;
+    /* 置中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body{
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+}
+span{
+    font-size: 30px;
+    color: #ff0000;
+}
+.wrapper{
+    position: relative;
+    z-index: 0;
+    padding: 30px;
+    width: 100%;
+    background: linear-gradient(to right bottom, #ff0000, #ffa500, #ffff00, #008000, #0000ff, #4b0082, #9400d3);
+}
+
+
+.wrapper .fuck #height{
+    padding:10px;
+    margin:10px;
+    font-size:20px;
+    color:rgb(0, 0, 0);
+    text-transform: none;
+    border:2px solid black;
+    border-radius: 20px;
+}
+
+.wrapper .fuck #weight{
+    padding:10px;
+    margin:10px;
+    font-size:20px;
+    color:rgb(0, 0, 0);
+    text-transform: none;
+    border:2px solid black;
+    border-radius: 20px;
+}
+
+.wrapper .fuck{
+    /* 置中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper .fuck p{
+    font-size: 30px;
+}
+
+button{
+    color: rgb(0, 0, 0);
+    padding: 10px;
+    border: 3px solid rgb(0, 0, 0);
+    background: rgb(255, 255, 255);
+    display: block;
+    margin-top: 10px;
+    cursor: pointer;
+    border-radius: 20px;    
+    
+}
+
+
+.wrapper .btn8{
+    /* 置中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 手機板 */
+@media (max-width:600px) {
+    /* 第一區header */
+    #menu-bar {
+        display: initial;
+        position: absolute;
+        right: 10px;
+        top: 20px;
+    }
+    header .navbar {
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        background-color: rgb(8, 8, 8);
+        border-top: 3px solid gray;
+        /* 隱藏下拉選單 */
+        clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+    }
+    header .navbar a {
+        /* 疊起來 */
+        display: block;
+        font-size: 22px;
+        font-weight: normal;
+        color: rgb(20, 80, 80);
+        margin: 10px;
+        padding: 6px;
+        border-left: 3px solid gray;
+        background-color: white;
+    }
+    header .navbar.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+        padding: 10px;
+    }
+    /* 第二區 */
+    .home .content {
+        text-align: center;
+        margin-top: 70px;
+        padding-top: 20px;
+    }
+    .home img {
+        width: 400px;
+        margin-top: -80px;
+        margin-left: -50px;
+    }
+    .btn {
+        width: 100%;
+        z-index: 4;
+    }
+    /* 第三區 */
+    .category .box-container .box {
+        /* flex-direction: column; */
+        flex: 1 1 auto;
+    }
+    /* 第四區 */
+    .menu .box-container .box {
+        /* flex-direction: column; */
+        flex: 1 1 auto;
+    }
+    /* 第五區 */
+    .gallery .box-container .box {
+        /* flex-direction: column; */
+        flex: 1 1 auto;
+    }
+    /* 第六區 */
+    .review .box-container .box {
+        /* flex-direction: column; */
+        flex: 1 1 auto;
+    }
+    /* 第七區 */
+    .order .box-container .box {
+        /* flex-direction: column; */
+        flex: 1 1 auto;
+    }
+    /* BMI */
+    .wrapper{
+        flex: 1 1 auto;
+    }
+
+    .wrapper #button{
+        flex: 1 1 auto;
+    }
+}
+
